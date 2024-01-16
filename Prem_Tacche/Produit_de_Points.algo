@@ -1,0 +1,39 @@
+ALGORITHM algorithm_name Produit_de_Point
+VAR
+    set_declarations
+    taille(v1),taille(v2),ps,v1,v2 : Entier
+    i : Entier
+BEGIN
+    set_instructions
+    Fonction Mn_produit(v1, v2):Entier
+    // Vérification de la taille des vecteurs
+    Afficher("Ecrirez la taille des deux vecteurs")
+    lire(taille(v1),taille(v2))
+
+    Si taille(v1) ≠ taille(v2) Alors
+    Afficher("Les vecteurs ne sont pas de la même taille. Le produit de points n'est pas défini.")
+    Fin Si
+
+    // Initialisation de la variable ps
+    ps = 0
+     // Calcul du produit scalaire
+        Pour i allant de 1 à taille(v1) Faire
+            ps ← ps + v1[i] * v2[i]
+        Fin Pour
+        Renvoyer ps
+    Fin Fonction
+
+    // Procédure pour vérifier l'orthogonalité de deux vecteurs
+    Procédure VerifierOrthogonaliteDeuxVecteurs(v1, v2)
+        // Appeler la fonction Mn_produit
+        Fonction Mn_produit(v1, v2):Entier
+        ps = dot_product(v1, v2)
+        // Vérifier si le produit scalaire est nul (vecteurs orthogonaux)
+        Si ps = 0 Alors
+            Afficher ("Les vecteurs sont orthogonaux.")
+        Sinon
+            Afficher ("Les vecteurs ne sont pas orthogonaux.")
+        Fin Si
+    Fin Procédure
+
+END

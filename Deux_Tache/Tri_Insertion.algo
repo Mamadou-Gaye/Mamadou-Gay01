@@ -1,0 +1,37 @@
+ALGORITHM algorithm_name TriParInsertion
+VAR
+    set_declarations
+    // Déclaration d'un tableau non trié
+    arr : tableau [1..6] Entier
+    taille,position,elements_Actuel : Entier
+    i : Entier
+BEGIN
+    set_instructions
+    Pour i allant de 0 à 5 Faire
+    Afficher("Entrez un nombre")
+    lire(arr[i])
+        Fin Pour
+    // Taille du tableau
+    taille = taille(arr[i])
+    // Boucle pour parcourir chaque élément du tableau à partir du deuxième
+    Pour i de allant de 1 à taille - 1 Faire
+        // Élément actuel à insérer dans la séquence triée
+        elements_Actuel = arr[i]
+        
+        // Initialiser la position pour l'insertion dans la séquence triée
+        position = i - 1
+
+        // Déplacer les éléments plus grands vers la droite
+        Tant que position ≥ 0 ET arr[position] > elements_Actuel Faire
+            arr[position + 1] ← arr[position]
+            position ← position - 1
+        Fin Tant Que
+
+        // Insérer l'élément actuel à sa position correcte dans la séquence triée
+        arr[position + 1] = elements_Actuel
+    Fin Pour
+
+    // Afficher le tableau trié
+    Afficher ("Tableau trié : ", arr[i])
+Fin Algorithme
+END
